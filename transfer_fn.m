@@ -26,10 +26,11 @@ num_tf=Kt;
 
 %tf of motor
 motor_tf=tf(num_tf,denom_tf);
-motor_tf
+rlocus(motor_tf)
 
 %the constants->kp,ki,kd
-kp=10;
-kd=20;
-ki=10;
-
+kp=80;
+kd=0;
+ki=0;
+cl_tf = feedback(kp * motor_tf, 1);
+step(cl_tf)
