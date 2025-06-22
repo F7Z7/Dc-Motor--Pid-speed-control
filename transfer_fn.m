@@ -28,3 +28,8 @@ num_tf=Kt;
 motor_tf=tf(num_tf,denom_tf);
 motor_tf
 
+%the constants->kp,ki,kd
+kp=10;
+kd=20;
+ki=10;
+
