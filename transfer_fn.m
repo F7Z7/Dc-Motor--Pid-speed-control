@@ -26,11 +26,21 @@ num_tf=Kt;
 
 %tf of motor
 motor_tf=tf(num_tf,denom_tf);
-%rlocus(motor_tf)
+
 
 %the constants->kp,ki,kd
 kp=420;
 kd=63;
 ki=700;
 cl_tf = feedback(kp * motor_tf, 1);
+
+%plots section
+figure('Position', [100, 100, 1200, 400]);
+
+subplot(1,2,1);
 step(cl_tf)
+title('Step Response')
+
+subplot(1,2,2);
+margin(cl_tf)
+title('Bode Plot')
