@@ -29,9 +29,9 @@ motor_tf=tf(num_tf,denom_tf);
 
 
 %the constants->kp,ki,kd
-kp=420;
-kd=63;
-ki=700;
+kp=393.138;
+kd=49.1423;
+ki=786.277;
 cl_tf = feedback(kp * motor_tf, 1);
 
 %plots section
