@@ -26,21 +26,27 @@ num_tf=Kt;
 
 %tf of motor
 motor_tf=tf(num_tf,denom_tf);
-
-
+%controlSystemDesigner(motor_tf)
+t = 0:0.01:4;
 %the constants->kp,ki,kd
-kp=393.138;
-kd=49.1423;
-ki=786.277;
-cl_tf = feedback(kp * motor_tf, 1);
+kp = 150;
+ki = 100;
+kd = 10;
+C = pid(kp,ki,kd);
+cl_tf = feedback(C * motor_tf, 1);
+ [y, t_out] = step(cl_tf, t);
+info = stepinfo(y, t_out);
+ disp(info)
 
+
+%grid on
 %plots section
-figure('Position', [100, 100, 1200, 400]);
+%figure('Position', [100, 100, 1200, 400]);
 
-subplot(1,2,1);
-step(cl_tf)
-title('Step Response')
+%subplot(1,2,1);
+%step(cl_tf)
+%title('Step Response')
 
-subplot(1,2,2);
-margin(cl_tf)
-title('Bode Plot')
+%subplot(1,2,2);
+%margin(cl_tf)
+%title('Bode Plot')
