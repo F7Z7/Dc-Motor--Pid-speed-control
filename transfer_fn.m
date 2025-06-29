@@ -29,9 +29,9 @@ motor_tf=tf(num_tf,denom_tf);
 %controlSystemDesigner(motor_tf)
 t = 0:0.01:4;
 %the constants->kp,ki,kd
-kp = 150;
-ki = 100;
-kd = 10;
+kp = 73.6043;
+ki = 227.913;
+kd = 5.7203;
 C = pid(kp,ki,kd);
 cl_tf = feedback(C * motor_tf, 1);
  [y, t_out] = step(cl_tf, t);
