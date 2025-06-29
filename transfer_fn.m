@@ -39,14 +39,22 @@ info = stepinfo(y, t_out);
  disp(info)
 
 
-%grid on
-%plots section
-%figure('Position', [100, 100, 1200, 400]);
 
-%subplot(1,2,1);
-%step(cl_tf)
-%title('Step Response')
+grid on
 
-%subplot(1,2,2);
-%margin(cl_tf)
-%title('Bode Plot')
+
+figure('Position', [100, 100, 1200, 400]);
+
+% Step Response
+subplot(1,2,1);
+step(cl_tf)                    
+title('Step Response');
+xlabel('Time (s)');
+ylabel('Amplitude');
+grid on;
+
+% Bode Plot (Gain & Phase Margin)
+subplot(1,2,2);
+margin(cl_tf);              
+title('Bode Plot');         
+grid on;
